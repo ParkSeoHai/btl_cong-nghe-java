@@ -9,3 +9,146 @@ body {
     font-family: "Merriweather", serif;
   	font-style: normal;
 }
+/*Start Header*/
+.top-header{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.left-top-header{
+
+}
+.top-header .left-top-header .img-logo{
+    height: 100%;
+}
+.top-header .left-top-header .img-logo img{
+    height: 28px;
+
+}
+.left-top-header span{
+    color: #757575;
+    font-size: 14px;
+    line-height: 32px;
+    margin: 0px 0px 0px 15px;
+    padding: 0px 0px 0px 15px;
+    border-left: 0.5px solid #ccc;
+}
+
+.right-top-header a{
+    color: #757575;
+    font-size: 1.4rem;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    margin: 0px 15px 0px 0px;
+    padding: 0px 15px 0px 0px;
+    border-right: 0.5px solid #ccc;
+}
+.right-top-header a img{
+    height: 16px;
+    padding-left: 5px;
+}
+.right-top-header span{
+    color: #757575;
+    font-size: 1.4rem;
+    height: 30px;
+    line-height: 30px;
+    margin: 0px 15px 0px 0px;
+    padding: 0px 15px 0px 0px;
+}
+.bottom-header{
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+}
+.bottom-header ul>li>a{
+    display: block;
+    color: #222;
+    font-size: 1.4rem;
+    padding: 16.5px 0px;
+    text-align: left;
+    text-decoration: none;
+    padding: 16px 10px;
+}
+.bottom-header ul>li>a:hover{
+    color: #b52759;
+}
+/*End Header*/
+
+/*Start Footer*/
+.footer{
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 5px solid #ccc;
+}
+.top-footer .hot-member>li>a{
+    color: #222;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+    padding: 7px 0;
+    display: block;
+}
+
+.top-footer a{
+    color: #222;
+    font-size: 1.4rem;
+    text-align: left;
+    text-decoration: none;
+    padding: 7px 0;
+    display: block;
+}
+.top-footer ul li ul>li{
+    width: 200px;
+    padding: 0 20px;
+}
+.hot-line p{
+    color: #757575;
+    font-size: 1.4rem;
+    line-height:16.8px;
+    margin: 0px 10px 10px;
+}
+.hot-line span{
+    color: #222;
+    display: inline;
+    font-weight: 700;
+    line-height: 16.8px;
+    margin: 0px 10px 10px;
+}
+.bottom-footer{
+    border-top: 1px #ccc solid;
+    margin-top: 24px;
+    height: 52px;
+    border-bottom: 1px #ccc solid;
+}
+.left-footer{
+    height: 100%;
+}
+.left-footer img{
+    height: 26px;
+}
+.left-footer span{
+    font-size: 1.4rem;
+    line-height: 16.8px;
+    color: #222;
+    margin-right: 10px;
+}
+.right-footer ul li a{
+    margin: 17px 0;
+    padding: 0 10px;
+    display: block;
+    text-decoration: none;
+    color: #757575;
+    font-size: 1.4rem;
+    border-right: 1px #ccc solid;
+}
+.right-footer span{
+    padding: 0 10px;
+    color: #757575;
+    font-size: 1.4rem;
+}
+.right-footer a{
+    padding: 0 5px;
+    font-size: 1.4rem;
+}
+/*End Footer*/
