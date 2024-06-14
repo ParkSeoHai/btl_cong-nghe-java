@@ -49,6 +49,10 @@ img {
 }
 
 /* Heading */
+header {
+	font-family: "Arial", serif;
+}
+
 h2.title a {
 	font-size: 2rem;
 	color: #222222;

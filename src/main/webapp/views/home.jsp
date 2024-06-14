@@ -575,7 +575,8 @@
 		</section>
 	</main>
 	
-	<!-- Import footer -->
 	<div style="height: 100px"></div>
+	<!-- Import footer -->
+	<%@include file="/views/footer.jsp" %>
 </body>
 </html>
