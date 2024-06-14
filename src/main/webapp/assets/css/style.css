@@ -9,3 +9,60 @@ body {
     font-family: "Merriweather", serif;
   	font-style: normal;
 }
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.desc {
+	font-family: "Arial", sans-serif;
+	font-size: 1.4rem;
+	color: #4f4f4f;
+	line-height: 1.5;
+}
+
+.count-cmt {
+	margin-left: 10px;
+}
+
+.count-cmt .icon {
+	font-size: 1.2rem;
+	color: #989797;
+}
+
+.count-cmt span {
+	font-size: 1.3rem;
+	color: #076db6;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* Heading */
+h2.title a {
+	font-size: 2rem;
+	color: #222222;
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+h3.title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 5px;
+	line-height: 1.5;
+}
+
+
+
+
