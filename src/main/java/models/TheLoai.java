@@ -1,11 +1,15 @@
 package models;
 
+import java.util.ArrayList;
+
 public class TheLoai {
 	private int Id;
 	private String Name;
 	private int IndexShow;
 	private int Hide;
 	private String TextUrl;
+	
+	private ArrayList<TheLoaiTin> TheLoaiTins;
 	
 	public TheLoai() {}
 	
@@ -56,6 +60,14 @@ public class TheLoai {
 	
 	public void setTextUrl(String textUrl) {
 		TextUrl = textUrl;
+	}
+	
+	public ArrayList<TheLoaiTin> getTheLoaiTins() {
+		return TheLoaiTins;
+	}
+	
+	public void setTheLoaiTins(ArrayList<TheLoaiTin> theLoaiTins) {
+		TheLoaiTins = theLoaiTins;
 	}
 	
 	@Override
