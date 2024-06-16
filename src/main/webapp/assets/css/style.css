@@ -76,6 +76,7 @@ h3.title {
 .top-header .left-top-header .img-logo{
     height: 100%;
 }
+
 .top-header .left-top-header .img-logo img{
     height: 28px;
 
@@ -87,6 +88,37 @@ h3.title {
     margin: 0px 0px 0px 15px;
     padding: 0px 0px 0px 15px;
     border-left: 0.5px solid #ccc;
+}
+
+.top-header .right-top-header .account {
+	position: relative;
+	cursor: pointer;
+}
+
+.top-header .right-top-header .account:hover .dropdown {
+	display: block;
+}
+
+.top-header .right-top-header .dropdown {
+	display: none;
+	position: absolute;
+	top: 38px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+	min-width: 260px;
+	background: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 15px;
+    text-align: left;
+}
+
+.top-header .right-top-header .dropdown-content {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e5e5e5;
 }
 
 .right-top-header a{
@@ -112,20 +144,53 @@ h3.title {
     padding: 0px 15px 0px 0px;
 }
 .bottom-header{
-    height: 50px;
     border-bottom: 1px solid #ccc;
 }
-.bottom-header ul>li>a{
+
+.bottom-header .navs .nav-item {
+	position: relative;
+	margin-right: 10px;
+}
+
+.bottom-header .navs .nav-item:last-child {
+	margin-right: 0;
+}
+
+.bottom-header .navs .nav-item:hover .sub-navs {
+	display: block;
+}
+
+.bottom-header .navs .nav-item .nav-link {
     display: block;
     color: #222;
     font-size: 1.4rem;
-    padding: 16.5px 0px;
     text-align: left;
     text-decoration: none;
-    padding: 16px 10px;
+    padding: 15px 0;
 }
-.bottom-header ul>li>a:hover{
+.bottom-header .navs .nav-item .nav-link:hover{
     color: #b52759;
+}
+
+.bottom-header .sub-navs {
+	display: none;
+	position: absolute;
+	width: 190px;
+	top: 100%;
+    background: #fff;
+    z-index: 999;
+    box-shadow: 0px 2px 4px 0px #ccc;
+    border-top: 1px solid #b52759;
+}
+
+.bottom-header .sub-navs a {
+	display: block;
+	padding: 10px 15px;
+	font-size: 1.4rem;
+}
+
+.bottom-header .sub-navs a:hover {
+	text-decoration: underline;
 }
 /*End Header*/
 

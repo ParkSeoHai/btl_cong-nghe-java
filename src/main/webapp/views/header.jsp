@@ -1,3 +1,4 @@
+<%@page import="services.TheLoaiService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -17,14 +18,23 @@
                 <a href="">Tin theo khu vực</a>
                 <a href="" class="d-flex align-items-center"><img src="/btl_docbao/assets/images/MiniLogo.png" alt="" class="me-2"> International</a>
                 <span><i class="bi bi-search"></i></span>
-                <%
-                	 String email = (String) session.getAttribute("email");
-                	 if (email != null) {
-                		 out.print("<a href=''>" + email + "</a>");
-                	 } else {
-                		 out.print("<a href=''/btl_docbao/views/login.jsp'><i class='bi bi-person'></i> Đăng nhập</a>");
-                	 }
-                %>
+                <div class='account'>
+	                <%
+	                	 String email = (String) session.getAttribute("email");
+	                	 if (email != null) {
+	                		 out.print("<span>" + email + "</span>");
+	                		 /* Dropdown */
+	                		 out.print("<div class='dropdown'>");
+	                		 out.print("<div class='dropdown-content'>");
+	                		 out.print("<p>Trang cá nhân</p>");
+	                		 out.print("</div>");
+	                		 out.print("<p class='pt-3'><a href='/btl_docbao/logout'>Đăng xuất</a></p>");
+	                		 out.print("</div>");
+	                	 } else {
+	                		 out.print("<a href='/btl_docbao/views/login.jsp'><i class='bi bi-person'></i> Đăng nhập</a>");
+	                	 }
+	                %>
+                </div>
                 <!-- <a href="/btl_docbao/views/login.jsp"><i class="bi bi-person"></i> Đăng nhập</a> -->
                 <span><i class="bi bi-bell"></i></span>
             </div>
@@ -32,23 +42,32 @@
         <div class="line" style="Border-bottom: 1px solid #ccc">
         </div>
         <div class="bottom-header d-flex justify-content-center">
-            <ul class="d-flex justify-content-between">
-                <li><a href="/btl_docbao/views/home.jsp"><i class="bi bi-house-fill"></i></a></li>
-                <li><a href="">Thời sự</a></li>
-                <li><a href="">Góc nhìn</a></li>
-                <li><a href="">Thế giới</a></li>
-                <li><a href="">Video</a></li>
-                <li><a href="">Podcasts</a></li>
-                <li><a href="">Kinh Doanh</a></li>
-                <li><a href="">Bất động sản</a></li>
-                <li><a href="">Khoa học</a></li>
-                <li><a href="">Giải trí</a></li>
-                <li><a href="">Thể Thao</a></li>
-                <li><a href="">Pháp luật</a></li>
-                <li><a href="">Giáo dục</a></li>
-                <li><a href="">Sức khỏe</a></li>
-                <li><a href="">Đời sống</a></li>
-                <li><a href=""><i class="bi bi-list"></i></a></li>
+            <ul class="d-flex justify-content-between navs">
+                <li class="nav-item"><a href="/btl_docbao/views/home.jsp" class="nav-link"><i class="bi bi-house-fill"></i></a></li>
+                <%
+                	var service = new TheLoaiService();
+                	var theLoais = service.getTheloais();
+                	for (var theLoai : theLoais) {
+                		out.print("<li class='nav-item'><a href='/btl_docbao/views/theloai.jsp?tl=" 
+                		+ theLoai.getTextUrl() + "' class='nav-link'>" + theLoai.getName() + "</a>");
+                		out.print("<ul class='sub-navs'>");
+                		for (var theloaitin : theLoai.getTheLoaiTins()) {
+                			out.print("<li><a href='/btl_docbao/views/theloai.jsp?tl="
+                			+ theLoai.getTextUrl() + "&tlt=" + theloaitin.getTextUrl() + "'>"
+                			+ theloaitin.getName() + "</a></li>");
+                		}
+                		out.print("</ul></li>");
+                	}
+                %>
+                <!-- <li class="nav-item">
+                	<a href="" class="nav-link">Thời sự</a>
+                	<ul class="sub-navs">
+						<li><a href="">Dân sự</a></li>
+						<li><a href="">Dân sự</a></li>
+						<li><a href="">Dân sự</a></li>
+                	</ul>
+                </li> -->
+                <li class="nav-item"><a href="" class="nav-link"><i class="bi bi-list"></i></a></li>
             </ul>
         </div>
         <script>

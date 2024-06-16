@@ -26,8 +26,10 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().removeAttribute("email");
-		response.sendRedirect("views/home.jsp");
+		if (request.getSession().getAttribute("email") != null) {
+			request.getSession().removeAttribute("email");
+			response.sendRedirect("views/home.jsp");
+		}
 	}
 
 	/**
