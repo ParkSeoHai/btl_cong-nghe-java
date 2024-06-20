@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 public class BaiViet {
 	private int Id;
 	private String Title;
@@ -11,6 +13,9 @@ public class BaiViet {
 	private String CreateDate;
 	private int View;
 	private int IdTheLoaiTin;
+	
+	// List binh luan
+	private ArrayList<BinhLuan> binhLuans;
 	
 	public BaiViet() {}
 	
@@ -114,5 +119,13 @@ public class BaiViet {
 		return "BaiViet [Id=" + Id + ", Title=" + Title + ", Description=" + Description + ", Content=" + Content
 				+ ", Image=" + Image + ", Author=" + Author + ", Hide=" + Hide + ", CreateDate=" + CreateDate
 				+ ", View=" + View + ", IdTheLoaiTin=" + IdTheLoaiTin + "]";
+	}
+
+	public ArrayList<BinhLuan> getBinhLuans() {
+		return binhLuans;
+	}
+
+	public void setBinhLuans(ArrayList<BinhLuan> binhLuans) {
+		this.binhLuans = binhLuans;
 	}
 }

@@ -45,8 +45,8 @@
             <ul class="d-flex justify-content-between navs">
                 <li class="nav-item"><a href="/btl_docbao/views/home.jsp" class="nav-link"><i class="bi bi-house-fill"></i></a></li>
                 <%
-                	var service = new TheLoaiService();
-                	var theLoais = service.getTheloais();
+                	var tlservice = new TheLoaiService();
+                	var theLoais = tlservice.getTheloais();
                 	for (var theLoai : theLoais) {
                 		out.print("<li class='nav-item'><a href='/btl_docbao/views/theloai.jsp?tl=" 
                 		+ theLoai.getTextUrl() + "' class='nav-link'>" + theLoai.getName() + "</a>");

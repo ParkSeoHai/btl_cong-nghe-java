@@ -14,8 +14,8 @@ public class TheLoaiService implements ITheLoai {
 	public ArrayList<TheLoai> getTheloais() {
 		try {
 			ArrayList<TheLoai> theLoais = new ArrayList<TheLoai>();
-			conn = models.DbConnect.getConnect();
-			String sql = "Select * from theloais Order by IndexShow ASC";
+			String sql = "Select * from theloais where Hide = 0 Order by IndexShow ASC";
+			this.conn = models.DbConnect.getConnect();
 			var ps = conn.prepareStatement(sql);
 			var rs = ps.executeQuery();
 			while (rs.next()) {
@@ -38,9 +38,9 @@ public class TheLoaiService implements ITheLoai {
 	public ArrayList<TheLoaiTin> getTheLoaiTinsByIdTheLoai(int id) {
 		try {
 			ArrayList<TheLoaiTin> theLoaiTins = new ArrayList<TheLoaiTin>();
-			conn = models.DbConnect.getConnect();
-			String sql = "Select * from theloaitins where Id_TheLoai = ? Order by IndexShow ASC";
-			var ps = conn.prepareStatement(sql);
+			String sql = "Select * from theloaitins where Id_TheLoai = ? and Hide = 0 Order by IndexShow ASC";
+			this.conn = models.DbConnect.getConnect();
+			var ps = this.conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			var rs = ps.executeQuery();
 			while (rs.next()) {
@@ -50,6 +50,28 @@ public class TheLoaiService implements ITheLoai {
 			}
 			models.DbConnect.closeConnect(conn);
 			return theLoaiTins;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public TheLoai getTheLoaiByTextUrl(String textUrl) {
+		try {
+			String sql = "Select * from theloais where TextUrl = ?";
+			this.conn = models.DbConnect.getConnect();
+			var ps = this.conn.prepareStatement(sql);
+			ps.setString(1, textUrl);
+			var rs = ps.executeQuery();
+			if (rs.next()) {
+				TheLoai theLoai = new TheLoai(rs.getInt("Id"), rs.getString("Name"), rs.getInt("IndexShow"),
+						rs.getInt("Hide"), rs.getString("TextUrl"));
+				theLoai.setTheLoaiTins(getTheLoaiTinsByIdTheLoai(theLoai.getId()));
+				models.DbConnect.closeConnect(conn);
+				return theLoai;
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

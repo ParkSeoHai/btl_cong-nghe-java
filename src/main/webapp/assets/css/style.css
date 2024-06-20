@@ -97,6 +97,7 @@ h3.title {
 
 .top-header .right-top-header .account:hover .dropdown {
 	display: block;
+	z-index: 999;
 }
 
 .top-header .right-top-header .dropdown {
@@ -178,7 +179,7 @@ h3.title {
 	width: 190px;
 	top: 100%;
     background: #fff;
-    z-index: 999;
+    z-index: 99;
     box-shadow: 0px 2px 4px 0px #ccc;
     border-top: 1px solid #b52759;
 }
