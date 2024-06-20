@@ -6,6 +6,7 @@ public class BinhLuan {
 	private String Time;
 	private int Id_BaiViet;
 	private int Id_User;
+	private int Id_BinhLuan;
 	
 	public BinhLuan() {}
 	
@@ -62,5 +63,13 @@ public class BinhLuan {
 	public String toString() {
 		return "BinhLuan [Id=" + Id + ", Content=" + Content + ", Time=" + Time + ", Id_BaiViet=" + Id_BaiViet
 				+ ", Id_User=" + Id_User + "]";
+	}
+
+	public int getId_BinhLuan() {
+		return Id_BinhLuan;
+	}
+
+	public void setId_BinhLuan(int id_BinhLuan) {
+		Id_BinhLuan = id_BinhLuan;
 	}
 }
