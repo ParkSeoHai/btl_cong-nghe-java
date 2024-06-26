@@ -1,8 +1,13 @@
-<%@page import="services.TheLoaiService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-	<header>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tin tức thời sự mới nhất 24h ngày hôm nay trên VnExpress</title>
+</head>
+<body>
+<header>
         <div class="top-header container d-flex justify-content-between">
             <div class="left-top-header d-flex">
                 <div class="img-logo">
@@ -45,8 +50,8 @@
             <ul class="d-flex justify-content-between navs">
                 <li class="nav-item"><a href="/btl_docbao/views/home.jsp" class="nav-link"><i class="bi bi-house-fill"></i></a></li>
                 <%
-                	var tlservice = new TheLoaiService();
-                	var theLoais = tlservice.getTheloais();
+                	var service = new TheLoaiService();
+                	var theLoais = service.getTheloais();
                 	for (var theLoai : theLoais) {
                 		out.print("<li class='nav-item'><a href='/btl_docbao/views/theloai.jsp?tl=" 
                 		+ theLoai.getTextUrl() + "' class='nav-link'>" + theLoai.getName() + "</a>");
@@ -85,3 +90,5 @@
         	document.querySelector(".date-now").innerHTML = dateNow;
         </script>
     </header>
+</body>
+</html>
