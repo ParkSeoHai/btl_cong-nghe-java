@@ -77,5 +77,23 @@ public class TheLoaiService implements ITheLoai {
 		}
 		return null;
 	}
-
+	public TheLoaiTin getTheLoaiTinByTextUrl(String textUrl) {
+		try {
+			String sql = "Select * from theloaitins where TextUrl = ?";
+			this.conn = models.DbConnect.getConnect();
+			var ps = this.conn.prepareStatement(sql);
+			ps.setString(1, textUrl);
+			var rs = ps.executeQuery();
+			if (rs.next()) {
+				TheLoaiTin theLoaiTin = new TheLoaiTin(rs.getInt("Id"), rs.getString("Name"), rs.getInt("IndexShow"),
+						rs.getInt("Hide"), rs.getString("TextUrl"), rs.getInt("HideGroup"), rs.getInt("Id_TheLoai"));
+				models.DbConnect.closeConnect(conn);
+				return theLoaiTin;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

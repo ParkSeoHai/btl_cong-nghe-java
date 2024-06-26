@@ -46,8 +46,16 @@ public class BaiVietService implements IBaiViet {
 	public ArrayList<BaiViet> GetBaiVietsByTheLoaiTin(int idTheLoaiTin, int limit, String order) {
 		try {
 			ArrayList<BaiViet> list = new ArrayList<BaiViet>();
-			String sql = "SELECT * FROM baiviets WHERE Id_TheLoaiTin = " + idTheLoaiTin
-					+ " ORDER BY Id " + order + " LIMIT " + limit;
+			
+			String sql = "";
+			
+			if (limit == 0) {
+				sql = "SELECT * FROM baiviets WHERE Id_TheLoaiTin = " + idTheLoaiTin + " ORDER BY Id " + order;
+			} else {
+				sql = "SELECT * FROM baiviets WHERE Id_TheLoaiTin = " + idTheLoaiTin + " ORDER BY Id " + order
+						+ " LIMIT " + limit;
+			}
+
 			java.sql.Statement statement = conn.createStatement();
 			java.sql.ResultSet rs = statement.executeQuery(sql);
 			while (rs.next()) {
@@ -76,9 +84,16 @@ public class BaiVietService implements IBaiViet {
 		try {
 			ArrayList<BaiViet> list = new ArrayList<BaiViet>();
 			
-			String sql = "SELECT * FROM baiviets WHERE Id_TheLoaiTin IN "
-					+ "(SELECT Id FROM theloaitins WHERE Id_TheLoai = " + idTheLoai + ") "
-					+ "ORDER BY Id " + order + " LIMIT " + limit;
+			String sql = "";
+			
+			if (limit == 0) {
+				sql = "SELECT * FROM baiviets WHERE Id_TheLoaiTin IN "
+						+ "(SELECT Id FROM theloaitins WHERE Id_TheLoai = " + idTheLoai + ") " + "ORDER BY Id " + order;
+			} else {
+				sql = "SELECT * FROM baiviets WHERE Id_TheLoaiTin IN "
+						+ "(SELECT Id FROM theloaitins WHERE Id_TheLoai = " + idTheLoai + ") "
+						+ "ORDER BY Id " + order + " LIMIT " + limit;
+            }
 			
 			java.sql.Statement statement = conn.createStatement();
 			java.sql.ResultSet rs = statement.executeQuery(sql);
