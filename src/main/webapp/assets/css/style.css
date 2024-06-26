@@ -53,6 +53,10 @@ header {
 	font-family: "Arial", serif;
 }
 
+footer {
+	font-family:  "Arial", serif;
+}
+
 h2.title a {
 	font-size: 2rem;
 	color: #222222;
@@ -191,6 +195,24 @@ h3.title {
 
 .bottom-header .sub-navs a:hover {
 	text-decoration: underline;
+}
+.btn-search{
+	position: relative;
+	margin-right: 12px;
+	padding-left: 0;
+}
+.icon-search{
+	position: absolute;
+	left: 5px;
+	top: 1px;
+	cursor: pointer;
+}
+.input-search{
+	width: 150px;
+	border: 0.5px solid #ccc;
+	border-radius: 10px;
+	padding-left: 25px;
+	outline: none;
 }
 /*End Header*/
 

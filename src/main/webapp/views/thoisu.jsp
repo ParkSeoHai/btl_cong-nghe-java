@@ -1,8 +1,13 @@
-<%@page import="services.TheLoaiService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-	<header>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tin tức thời sự mới nhất 24h ngày hôm nay trên VnExpress</title>
+</head>
+<body>
+<header>
         <div class="top-header container d-flex justify-content-between">
             <div class="left-top-header d-flex">
                 <div class="img-logo">
@@ -85,3 +90,5 @@
         	document.querySelector(".date-now").innerHTML = dateNow;
         </script>
     </header>
+</body>
+</html>
