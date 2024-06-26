@@ -294,3 +294,14 @@ h3.title {
     padding: 0 5px;
     font-size: 1.4rem;
 }
+
+.right-top-header{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.account{
+	line-height: 10px;
+	display: block;
+	padding: 10px 0;
+}

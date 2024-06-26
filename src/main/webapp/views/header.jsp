@@ -28,6 +28,7 @@
 	                		 out.print("<div class='dropdown-content'>");
 	                		 out.print("<p>Trang cá nhân</p>");
 	                		 out.print("</div>");
+	                		 out.print("<p class='pt-3'><a href='/btl_docbao/views/Infomation-user.jsp'>Thông tin chung</a></p>");
 	                		 out.print("<p class='pt-3'><a href='/btl_docbao/logout'>Đăng xuất</a></p>");
 	                		 out.print("</div>");
 	                	 } else {
