@@ -17,7 +17,10 @@
                 <a href="">Mới nhất</a>
                 <a href="">Tin theo khu vực</a>
                 <a href="" class="d-flex align-items-center"><img src="/btl_docbao/assets/images/MiniLogo.png" alt="" class="me-2"> International</a>
-                <span class="btn-search"><i class="bi bi-search icon-search"></i><input class="input-search d-none" placeholder="Tìm kiếm..." type="text"></span>
+                <form action="/btl_docbao/SearchTitleAction" class="form-search" method="get">
+                	<span class="btn-search"><i class="bi bi-search icon-search"></i><input class="input-search d-none" placeholder="Tìm kiếm..." type="text" name="title"></span>
+                	<input type="submit" value="search" style="display: none;">
+                </form>
                 <div class='account'>
 	                <%
 	                	 String email = (String) session.getAttribute("email");

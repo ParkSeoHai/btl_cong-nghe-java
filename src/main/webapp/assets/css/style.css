@@ -205,7 +205,7 @@ h3.title {
 .icon-search{
 	position: absolute;
 	left: 5px;
-	top: 1px;
+	top: -5px;
 	cursor: pointer;
 }
 .input-search{
