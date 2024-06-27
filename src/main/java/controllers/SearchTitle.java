@@ -12,10 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Servlet implementation class SearchTitleBV
+ * Servlet implementation class SearchTitle
  */
-
-@WebServlet("SearchTitleAction")
+@WebServlet("/SearchTitleAction")
 public class SearchTitle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
