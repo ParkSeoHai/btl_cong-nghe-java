@@ -32,15 +32,12 @@ public class SearchTitle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("title");
-		String title = "%" +name+ "%";
-		int limit = 15;
 		
 		BaiVietService bvservide = new BaiVietService();
-		ArrayList<BaiViet> baiViets = bvservide.GetBaiVietsWithName(limit, title);
 		
-		request.setAttribute("baiviets", baiViets);
+		request.setAttribute("name", name);
 		
-		response.sendRedirect("views/search-view.jsp");
+		request.getRequestDispatcher("views/search-view.jsp").forward(request, response);
 	}
 
 	/**

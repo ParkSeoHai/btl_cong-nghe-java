@@ -31,33 +31,30 @@
 	<%@include file="/views/header.jsp" %>
 	
 	<main class="container">
-		<h1 style="font-size: 2.4rem; color: black;">Tìm kiếm</h1></br>
-		
+		<h1 style="color:#222;font-family:Merriweather;font-size:24px;font-weight:700;line-height:38.4px;margin:30px 0px 15px;">Tìm kiếm</h1></br>
 		<%
-				ArrayList<BaiViet> baiViets = (ArrayList<BaiViet>) request.getAttribute("BaiViets");
-					for (BaiViet baiViet : baiViets) {
-						out.print("<div class='item-news'>");
-						out.print("<h3 class='title line-clamp-3'>");
-						out.print("<a href=''>" + baiViet.getTitle() + "</a>");
-						out.print("</h3>");
-						out.print("<div class='d-flex'>");
-						out.print("<div class='thumb-art'>");
-						out.print("<a href=''>");
-						out.print("<img alt='" + baiViet.getTitle() + "' src='" + baiViet.getImage() + "'</a>");
-						out.print("</div>");
-						out.print("<p class='desc'");
-						out.print("<a href=''>" + baiViet.getDescription() + "</a>");
-						if (baiViet.getBinhLuans().size() > 0) {
-                            out.print("<a href='' class='count-cmt'>");
-							out.print("<i class='bi bi-chat-fill icon'></i>");
-							out.print("<span class='ms-2'>" + baiViet.getBinhLuans().size() + "</span>");
-							out.print("</a>");
-                            }
-							out.print("</p>");
-							out.print("</div>");
-							out.print("</div>");
-							}
-		%>
+			String title = (String) request.getAttribute("name");
+			ArrayList<BaiViet> baiViets = (ArrayList<BaiViet>) baiVietService.GetBaiVietsWithName(15, "'%"+title+"%'");
+			if(baiViets.size() == 0){
+				out.print("<h2>Không tìm thấy thông tin khả dụng!</h2>");
+			}else{
+				for (BaiViet baiViet : baiViets) {
+					out.print("<div class='row baiviet-content'>");
+					out.print("<div class='col-9 info-baiviet'>");
+					out.print("<a href=''>" + baiViet.getTitle() + "</a>");
+					out.print("<h5>" + baiViet.getDescription() + "</h5>");
+					if (baiViet.getBinhLuans().size() > 0){
+						out.print("<i class='bi bi-chat-fill icon'></i>");
+						out.print("<span>" + baiViet.getBinhLuans().size() + "</span>");
+					}
+					out.print("</div>");
+					out.print("<div class='col-3 img-baiviet'>");
+					out.print("<img alt='" + baiViet.getTitle() + "' src='" + baiViet.getImage() + "'</a>");
+					out.print("</div>");
+					out.print("</div>");
+				}
+			}
+			%>
 	</main>
 	
 	<div style="height: 100px"></div>
