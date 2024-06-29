@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 public class BinhLuan {
 	private int Id;
 	private String Content;
@@ -7,6 +9,9 @@ public class BinhLuan {
 	private int Id_BaiViet;
 	private int Id_User;
 	private int Id_BinhLuan;
+	
+	private ArrayList<BinhLuanEmotion> Bl_Emotions;
+	private ArrayList<BinhLuan> binhLuansReplies;
 	
 	public BinhLuan() {}
 	
@@ -71,5 +76,21 @@ public class BinhLuan {
 
 	public void setId_BinhLuan(int id_BinhLuan) {
 		Id_BinhLuan = id_BinhLuan;
+	}
+	
+	public ArrayList<BinhLuanEmotion> getBl_Emotions() {
+		return Bl_Emotions;
+	}
+	
+	public void setBl_Emotions(ArrayList<BinhLuanEmotion> bl_Emotions) {
+		Bl_Emotions = bl_Emotions;
+	}
+	
+	public ArrayList<BinhLuan> getBinhLuansReplies() {
+		return binhLuansReplies;
+	}
+	
+	public void setBinhLuansReplies(ArrayList<BinhLuan> binhLuansReplies) {
+		this.binhLuansReplies = binhLuansReplies;
 	}
 }

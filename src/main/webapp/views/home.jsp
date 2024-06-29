@@ -26,6 +26,10 @@
 <body>
 	<%
 		BaiVietService baiVietService = new BaiVietService();
+		ArrayList<BaiViet> baiViets = baiVietService.GetBaiVietsWithLimit(20, "desc");
+		
+		var baiVietTop = baiViets.subList(0, 4);
+		var baivietLeft = baiViets.subList(5, baiViets.size());
 	%>
 	<!-- Import header -->
 	<%@include file="/views/header.jsp" %>
@@ -134,21 +138,21 @@
 					<div class="col-left">
 						<!-- Item 1 -->
 						<%
-							ArrayList<BaiViet> baiViets = baiVietService.GetBaiVietsWithLimit(15, "desc");
-							for (BaiViet baiViet : baiViets) {
+							
+							for (BaiViet baiViet : baivietLeft) {
 								out.print("<div class='item-news'>");
 								out.print("<h3 class='title line-clamp-3'>");
-								out.print("<a href=''>" + baiViet.getTitle() + "</a>");
+								out.print("<a href='baiviet.jsp?id=" + baiViet.getId() + "'>" + baiViet.getTitle() + "</a>");
 								out.print("</h3>");
 								out.print("<div class='d-flex'>");
 								out.print("<div class='thumb-art'>");
-								out.print("<a href=''>");
+								out.print("<a href='baiviet.jsp?id=" + baiViet.getId() + "'>");
 								out.print("<img alt='" + baiViet.getTitle() + "' src='" + baiViet.getImage() + "'</a>");
 								out.print("</div>");
 								out.print("<p class='desc'");
-								out.print("<a href=''>" + baiViet.getDescription() + "</a>");
+								out.print("<a href='baiviet.jsp?id=" + baiViet.getId() + "'>" + baiViet.getDescription() + "</a>");
 								if (baiViet.getBinhLuans().size() > 0) {
-                                	out.print("<a href='' class='count-cmt'>");
+                                	out.print("<a href='baiviet.jsp?id=" + baiViet.getId() + "' class='count-cmt'>");
 									out.print("<i class='bi bi-chat-fill icon'></i>");
 									out.print("<span class='ms-2'>" + baiViet.getBinhLuans().size() + "</span>");
 									out.print("</a>");

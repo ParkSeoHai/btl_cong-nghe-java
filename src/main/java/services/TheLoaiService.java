@@ -77,6 +77,8 @@ public class TheLoaiService implements ITheLoai {
 		}
 		return null;
 	}
+	
+	@Override
 	public TheLoaiTin getTheLoaiTinByTextUrl(String textUrl) {
 		try {
 			String sql = "Select * from theloaitins where TextUrl = ?";
@@ -91,6 +93,48 @@ public class TheLoaiService implements ITheLoai {
 				return theLoaiTin;
 			}
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public TheLoaiTin getTheLoaiTinById(int id) {
+		try {
+			String sql = "Select * from theloaitins where Id = ?";
+			this.conn = models.DbConnect.getConnect();
+			var ps = this.conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			var rs = ps.executeQuery();
+			if (rs.next()) {
+				TheLoaiTin theLoaiTin = new TheLoaiTin(rs.getInt("Id"), rs.getString("Name"), rs.getInt("IndexShow"),
+						rs.getInt("Hide"), rs.getString("TextUrl"), rs.getInt("HideGroup"), rs.getInt("Id_TheLoai"));
+				models.DbConnect.closeConnect(conn);
+				return theLoaiTin;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public TheLoai getTheLoaiById(int id) {
+		try {
+			String sql = "Select * from theloais where Id = ?";
+			this.conn = models.DbConnect.getConnect();
+			var ps = this.conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			var rs = ps.executeQuery();
+			if (rs.next()) {
+				TheLoai theLoai = new TheLoai(rs.getInt("Id"), rs.getString("Name"), rs.getInt("IndexShow"),
+						rs.getInt("Hide"), rs.getString("TextUrl"));
+				theLoai.setTheLoaiTins(getTheLoaiTinsByIdTheLoai(theLoai.getId()));
+				models.DbConnect.closeConnect(conn);
+				return theLoai;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
