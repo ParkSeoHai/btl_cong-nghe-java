@@ -139,4 +139,14 @@
     <servlet-name>ChangePassword</servlet-name>
     <url-pattern>/ChangePassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchTitle</display-name>
+    <servlet-name>SearchTitle</servlet-name>
+    <servlet-class>controllers.SearchTitle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchTitle</servlet-name>
+    <url-pattern>/SearchTitle</url-pattern>
+  </servlet-mapping>
 </web-app>
