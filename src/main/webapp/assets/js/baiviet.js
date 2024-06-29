@@ -279,7 +279,33 @@ const saveBaiViet = (idBaiViet, idUser) => {
 		.catch(error => console.error('Error:', error));
 };
 
+// Hủy lưu bài viết
+const removeSaveBaiViet = (idUser, idBaiviet) => {
+	const data = {
+		id_user: idUser,
+		id_baiViet: idBaiviet,
+	};
 
+	// Gửi dữ liệu lên server
+	const url = `${location.origin}/btl_docbao/RemoveSaveBaiVietAction`
+	fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	})
+		.then(response => response.text())
+		.then(result => {
+			if (result === 'true') {
+				alert('Hủy lưu bài viết thành công');
+				location.reload();
+			} else {
+				alert('Thất bại');
+			}
+		})
+		.catch(error => console.error('Error:', error));
+};
 
 
 

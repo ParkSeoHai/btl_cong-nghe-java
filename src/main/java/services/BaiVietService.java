@@ -234,4 +234,43 @@ public class BaiVietService implements IBaiViet {
 		return false;
 	}
 	
+	public boolean RemoveSavedBaiViet(int idBaiViet, int idUser) {
+		try {
+			String sql = "DELETE FROM baivietsaves WHERE Id_BaiViet = " + idBaiViet + " AND Id_User = " + idUser;
+			java.sql.Statement statement = conn.createStatement();
+			statement.executeUpdate(sql);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public ArrayList<BaiViet> GetBaiVietSaved(int idUser) {
+		ArrayList<BaiViet> list = new ArrayList<BaiViet>();
+		try {
+			String sql = "Select * from baiviets where Id in (Select Id_BaiViet from baivietsaves where Id_User = " + idUser + ")";
+			java.sql.Statement statement = conn.createStatement();
+			java.sql.ResultSet rs = statement.executeQuery(sql);
+			var binhLuanService = new BinhLuanService();
+			while (rs.next()) {
+                BaiViet bv = new BaiViet();
+                bv.setId(rs.getInt("Id"));
+                bv.setTitle(rs.getString("Title"));
+                bv.setDescription(rs.getString("Description"));
+                bv.setContent(rs.getString("Content"));
+                bv.setImage(rs.getString("Image"));
+                bv.setAuthor(rs.getString("Author"));
+                bv.setHide(rs.getInt("Hide"));
+                bv.setCreateDate(rs.getString("CreateDate"));
+                bv.setView(rs.getInt("View"));
+                bv.setIdTheLoaiTin(rs.getInt("Id_TheLoaiTin"));
+                bv.setCommentCount(binhLuanService.GetBinhLuansByIdBaiViet(rs.getInt("Id"), "all").size());
+                list.add(bv);
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
