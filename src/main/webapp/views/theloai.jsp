@@ -45,6 +45,7 @@
 	    
 	    var bvTop = baiViets.get(0);
 	    var bvTopSubs = baiViets.subList(1, 4);
+	    var bvBottoms = baiViets.subList(4, baiViets.size());
 	%>
 	
 	<!-- Content -->
@@ -281,7 +282,30 @@
 				<div class="row">
 					<div class="block-left col-9">
 						<div class="list-news pe-4">
-							<div class="new-item row">
+							<%
+								for (var bv : bvBottoms) {
+									out.print("<div class='new-item row'>");
+                                    out.print("<div class='thumb-img col-4'>");
+                                    out.print("<img src='" + bv.getImage() + "' >");
+                                    out.print("</div>");
+                                    out.print("<div class='content col-8'>");
+                                    out.print("<h3 class='title fs-3'>");
+                                    out.print("<a href='baiviet.jsp?id=" + bv.getId() + "'>" + bv.getTitle() + "</a>");
+                                    out.print("</h3>");
+                                    out.print("<p class='desc'>");
+                                    out.print(bv.getDescription());
+                                    if (bv.getBinhLuans().size() > 0) {
+                                        out.print("<a href='alt='baiviet.jsp?id=" + bv.getId() + "' class='count-cmt'>");
+                                        out.print("<i class='bi bi-chat-fill icon'></i>");
+                                        out.print("<span>" + bv.getBinhLuans().size() + "</span>");
+                                        out.print("</a>");
+                                    }
+                                    out.print("</p>");
+                                    out.print("</div>");
+                                    out.print("</div>");
+								}
+							%>
+							<!-- <div class="new-item row">
 								<div class="thumb-img col-4">
 									<img src="https://i1-vnexpress.vnecdn.net/2024/06/24/120202783-3208376682609080-871-4096-9025-1719225407.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=4Qc_niQhb51cd7lSY8r3vg" >
 								</div>
@@ -295,43 +319,65 @@
 										</a>
 									</p>
 								</div>
-							</div>
-							<div class="new-item row">
-								<div class="thumb-img col-4">
-									<img src="https://i1-vnexpress.vnecdn.net/2024/06/24/120202783-3208376682609080-871-4096-9025-1719225407.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=4Qc_niQhb51cd7lSY8r3vg" >
-								</div>
-								<div class="content col-8">
-									<h3 class="title fs-3">Thủy điện Hòa Bình mở cửa xả đáy</h3>
-									<p class="desc">
-										HÒA BÌNH - Thủy điện Hòa Bình sẽ xả đáy vào 22h tối 24/6, theo quyết định của Ban Chỉ đạo quốc gia về phòng chống thiên tai.
-										<a href="" class="count-cmt">
-											<i class="bi bi-chat-fill icon"></i>
-											<span>117</span>
-										</a>
-									</p>
-								</div>
-							</div>
-							<div class="new-item row">
-								<div class="thumb-img col-4">
-									<img src="https://i1-vnexpress.vnecdn.net/2024/06/24/120202783-3208376682609080-871-4096-9025-1719225407.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=4Qc_niQhb51cd7lSY8r3vg" >
-								</div>
-								<div class="content col-8">
-									<h3 class="title fs-3">Thủy điện Hòa Bình mở cửa xả đáy</h3>
-									<p class="desc">
-										HÒA BÌNH - Thủy điện Hòa Bình sẽ xả đáy vào 22h tối 24/6, theo quyết định của Ban Chỉ đạo quốc gia về phòng chống thiên tai.
-										<a href="" class="count-cmt">
-											<i class="bi bi-chat-fill icon"></i>
-											<span>117</span>
-										</a>
-									</p>
-								</div>
-							</div>
-							
+							</div> -->
 						</div>
 					</div>
+					
 					<div class="block-right col-3">
-						<div class="box-category">
-							<!-- Item 1: kinh-doanh -->
+						<%
+							for (var tlt : theloai.getTheLoaiTins()) {
+								out.print("<div class='box-category mb-5'>");
+								out.print("<div class='tabs'>");
+								out.print("<ul class='list-tabs'>");
+								out.print("<li class='nav-item'>");
+								out.print("<a href='theloai.jsp?tl=" + theLoaiParam + "&tlt=" + tlt.getTextUrl() + "' class='nav-link active'>" + tlt.getName() + "</a>");
+								out.print("</li>");
+								out.print("</ul>");
+								out.print("</div>");
+								out.print("<div class='block-news'>");
+								
+								/* Get data baiviet */
+								var baivietsByTlt = bvService.GetBaiVietsByTheLoaiTin(tlt.getId(), 3, "desc");
+								var bvTopByTlt = baivietsByTlt.get(0);
+								var bvSubsByTlt = baivietsByTlt.subList(1, baivietsByTlt.size());
+								
+								out.print("<div class='item-new'>");
+								out.print("<div class='thumb-img'>");
+								out.print("<img src='" + bvTopByTlt.getImage() + "' >");
+								out.print("</div>");
+								out.print("<div class='content mt-2'>");
+								out.print("<h3 class='title fs-4'>");
+								out.print("<a href='baiviet.jsp?id=" + bvTopByTlt.getId() + "'>" + bvTopByTlt.getTitle() + "</a>");
+								if (bvTopByTlt.getBinhLuans().size() > 0) {
+									out.print("<a href='baiviet.jsp?id=" + bvTopByTlt.getId() + "' class='count-cmt'>");
+									out.print("<i class='bi bi-chat'></i>");
+									out.print("<span>" + bvTopByTlt.getBinhLuans().size() + "</span>");
+									out.print("</a>");
+								}
+								out.print("</h3>");
+								out.print("</div>");
+								out.print("</div>");
+								
+								for (var bv : bvSubsByTlt) {
+									out.print("<div class='item-new'>");
+									out.print("<div class='content mt-2'>");
+									out.print("<h3 class='title fs-4'>");
+									out.print("<a href='baiviet.jsp?id=" + bv.getId() + "'>" + bv.getTitle() + "</a>");
+									if (bv.getBinhLuans().size() > 0) {
+										out.print("<a href='baiviet.jsp?id=" + bv.getId() + "' class='count-cmt'>");
+										out.print("<i class='bi bi-chat'></i>");
+										out.print("<span>" + bv.getBinhLuans().size() + "</span>");
+										out.print("</a>");
+									}
+									out.print("</h3>");
+									out.print("</div>");
+									out.print("</div>");
+								}
+								out.print("</div>");
+								out.print("</div>");
+							}
+						%>
+						<!-- <div class="box-category">
 							<div class="tabs">
 								<ul class="list-tabs">
 									<li class="nav-item">
@@ -339,6 +385,7 @@
 									</li>
 								</ul>
 							</div>
+							
 							<div class="block-news">
 								<div class="item-new">
 									<div class="thumb-img">
@@ -378,8 +425,9 @@
 										</p>
 									</div>
 								</div>
+							
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

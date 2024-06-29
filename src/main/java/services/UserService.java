@@ -74,6 +74,62 @@ public class UserService implements IUser {
 		return false;
 	}
 	
+	public User getUserById(int id) {
+        User user = new User();
+        try {
+            conn = models.DbConnect.getConnect();
+            String sql = "SELECT * FROM users WHERE id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            var rs = ps.executeQuery();
+            if (rs.next()) {
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setImage(rs.getString("image"));
+                user.setRole(rs.getInt("role"));
+                user.setBirthday(rs.getString("birthday"));
+                user.setGender(rs.getInt("gender"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
+                user.setAddress(rs.getString("address"));
+                user.setCreateDate(rs.getString("createDate"));
+            }
+            models.DbConnect.closeConnect(conn);
+        } catch (Exception e) {
+        	e.printStackTrace();
+      	}
+        return user;
+	}
+	
+	public User getUserByEmail(String email) {
+		User user = new User();
+        try {
+            conn = models.DbConnect.getConnect();
+            String sql = "SELECT * FROM users WHERE email = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, email);
+            var rs = ps.executeQuery();
+            if (rs.next()) {
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setImage(rs.getString("image"));
+                user.setRole(rs.getInt("role"));
+                user.setBirthday(rs.getString("birthday"));
+                user.setGender(rs.getInt("gender"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
+                user.setAddress(rs.getString("address"));
+                user.setCreateDate(rs.getString("createDate"));
+            }
+            models.DbConnect.closeConnect(conn);
+        } catch (Exception e) {
+        	e.printStackTrace();
+      	}
+        return user;
+	}
+	
 	@Override
 	public User getUser(String email) {
 		try {

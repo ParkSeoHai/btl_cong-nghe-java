@@ -17,6 +17,8 @@ public class BaiViet {
 	// List binh luan
 	private ArrayList<BinhLuan> binhLuans;
 	
+	private int CommentCount;
+	
 	public BaiViet() {}
 	
 	public BaiViet(int id, String title, String description, String content, String image, String author, int hide,
@@ -127,5 +129,13 @@ public class BaiViet {
 
 	public void setBinhLuans(ArrayList<BinhLuan> binhLuans) {
 		this.binhLuans = binhLuans;
+	}
+	
+	public int getCommentCount() {
+		return CommentCount;
+	}
+	
+	public void setCommentCount(int commentCount) {
+		CommentCount = commentCount;
 	}
 }
