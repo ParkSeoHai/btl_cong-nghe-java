@@ -130,4 +130,145 @@ public class UserService implements IUser {
         return user;
 	}
 	
+	@Override
+	public User getUser(String email) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "SELECT * FROM users WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, email);
+        	var rs = ps.executeQuery();
+			if (rs.next()) {
+				User user = new User(rs.getInt("Id"), rs.getString("Name"), rs.getString("Email"), rs.getString("Password"), rs.getInt("Role"), rs.getString("Image"),
+						rs.getString("Birthday"), rs.getInt("Gender"), rs.getString("PhoneNumber"), rs.getString("Address"), rs.getString("CreateDate"));
+				models.DbConnect.closeConnect(conn);
+				return user;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@Override
+	public User updateUserName(String email, String newName) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET Name = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newName);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@Override
+	public User updateGender(String email, int newGender) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET Gender = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setInt(1, newGender);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public User updateBirthday(String email, String newBirthday) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET Birthday = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newBirthday);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public User updateNumberphone(String email, String newNumberphone) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET PhoneNumber = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newNumberphone);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public User updateAddress(String email, String newAddress) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET Address = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newAddress);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public User updateEmail(String email, String newEmail) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET email = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newEmail);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public User updateAvatar(String email, String newAvatar) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET Image = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newAvatar);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public User updatePassword(String email, String newPassword) {
+		try {
+        	conn = models.DbConnect.getConnect();
+        	String sql = "UPDATE users SET Password = ? WHERE email = ?";
+        	PreparedStatement ps = conn.prepareStatement(sql);
+        	ps.setString(1, newPassword);
+        	ps.setString(2, email);
+        	ps.executeUpdate();
+        	models.DbConnect.closeConnect(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

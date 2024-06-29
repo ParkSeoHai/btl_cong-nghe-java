@@ -1,8 +1,14 @@
 <%@page import="services.TheLoaiService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-	<header>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tin tức thời sự mới nhất 24h ngày hôm nay trên VnExpress</title>
+</head>
+<body>
+<header>
         <div class="top-header container d-flex justify-content-between">
             <div class="left-top-header d-flex">
                 <div class="img-logo">
@@ -17,10 +23,7 @@
                 <a href="">Mới nhất</a>
                 <a href="">Tin theo khu vực</a>
                 <a href="" class="d-flex align-items-center"><img src="/btl_docbao/assets/images/MiniLogo.png" alt="" class="me-2"> International</a>
-                <form action="/btl_docbao/SearchTitleAction" class="form-search" method="get">
-                	<span class="btn-search"><i class="bi bi-search icon-search"></i><input class="input-search d-none" placeholder="Tìm kiếm..." type="text" name="title"></span>
-                	<input type="submit" value="search" style="display: none;">
-                </form>
+                <span class="btn-search"><i class="bi bi-search icon-search"></i><input class="input-search d-none" placeholder="Tìm kiếm..." type="text"></span>
                 <div class='account'>
 	                <%
 	                	 String email = (String) session.getAttribute("email");
@@ -31,7 +34,6 @@
 	                		 out.print("<div class='dropdown-content'>");
 	                		 out.print("<p>Trang cá nhân</p>");
 	                		 out.print("</div>");
-	                		 out.print("<p class='pt-3'><a href='/btl_docbao/views/Infomation-user.jsp'>Thông tin chung</a></p>");
 	                		 out.print("<p class='pt-3'><a href='/btl_docbao/logout'>Đăng xuất</a></p>");
 	                		 out.print("</div>");
 	                	 } else {
@@ -49,8 +51,8 @@
             <ul class="d-flex justify-content-between navs">
                 <li class="nav-item"><a href="/btl_docbao/views/home.jsp" class="nav-link"><i class="bi bi-house-fill"></i></a></li>
                 <%
-                	var tlservice = new TheLoaiService();
-                	var theLoais = tlservice.getTheloais();
+                	var service = new TheLoaiService();
+                	var theLoais = service.getTheloais();
                 	for (var theLoai : theLoais) {
                 		out.print("<li class='nav-item'><a href='/btl_docbao/views/theloai.jsp?tl=" 
                 		+ theLoai.getTextUrl() + "' class='nav-link'>" + theLoai.getName() + "</a>");
@@ -89,3 +91,5 @@
         	document.querySelector(".date-now").innerHTML = dateNow;
         </script>
     </header>
+</body>
+</html>

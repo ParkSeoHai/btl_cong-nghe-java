@@ -162,6 +162,36 @@ public class BaiVietService implements IBaiViet {
 			var binhLuanService = new BinhLuanService();
 			if (rs.next()) {
 				BaiViet bv = new BaiViet();
+                bv.setId(rs.getInt("Id"));
+                bv.setTitle(rs.getString("Title"));
+                bv.setDescription(rs.getString("Description"));
+                bv.setContent(rs.getString("Content"));
+                bv.setImage(rs.getString("Image"));
+                bv.setAuthor(rs.getString("Author"));
+                bv.setHide(rs.getInt("Hide"));
+                bv.setCreateDate(rs.getString("CreateDate"));
+                bv.setView(rs.getInt("View"));
+                bv.setIdTheLoaiTin(rs.getInt("Id_TheLoaiTin"));
+                bv.setBinhLuans(binhLuanService.GetBinhLuansByIdBaiViet(rs.getInt("Id"), "comment"));
+				bv.setCommentCount(binhLuanService.GetBinhLuansByIdBaiViet(rs.getInt("Id"), "all").size());
+                return bv;
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+        }
+		return null;
+	}
+
+	@Override
+	public ArrayList<BaiViet> GetBaiVietsWithName(int limit,String Name){
+		try {
+			String sql = "SELECT * FROM baiviets Where Title Like " + Name + " LIMIT " + limit;
+			java.sql.Statement statement = conn.createStatement();
+			java.sql.ResultSet rs = statement.executeQuery(sql);
+			ArrayList<BaiViet> list = new ArrayList<BaiViet>();
+			var binhLuanService = new BinhLuanService();
+			while (rs.next()) {
+				BaiViet bv = new BaiViet();
 				bv.setId(rs.getInt("Id"));
 				bv.setTitle(rs.getString("Title"));
 				bv.setDescription(rs.getString("Description"));
@@ -174,8 +204,9 @@ public class BaiVietService implements IBaiViet {
 				bv.setIdTheLoaiTin(rs.getInt("Id_TheLoaiTin"));
 				bv.setBinhLuans(binhLuanService.GetBinhLuansByIdBaiViet(rs.getInt("Id"), "comment"));
 				bv.setCommentCount(binhLuanService.GetBinhLuansByIdBaiViet(rs.getInt("Id"), "all").size());
-				return bv;
+                list.add(bv);
 			}
+			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -202,4 +233,5 @@ public class BaiVietService implements IBaiViet {
 		}
 		return false;
 	}
+	
 }

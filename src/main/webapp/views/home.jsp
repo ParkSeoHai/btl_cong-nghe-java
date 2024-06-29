@@ -40,7 +40,29 @@
 				<div class="row">
 					<div class="col-9">
 						<!-- Item top full -->
-						<div class="item-news full-thumb row">
+						<%
+							var baiVietTopFull = baiVietTop.get(0);
+							out.print("<div class='item-news full-thumb row'>");
+							out.print("<div class='img col-8'>");
+							out.print("<img alt='" + baiVietTopFull.getTitle() + "' src='" + baiVietTopFull.getImage() + "'>");
+							out.print("</div>");
+							out.print("<div class='content col-4'>");
+							out.print("<h2 class='title'>");
+							out.print("<a href='baiviet.jsp?id=" + baiVietTopFull.getId() + "'>" + baiVietTopFull.getTitle() + "</a>");
+							out.print("</h2>");
+							out.print("<p class='desc'>");
+							out.print("<a href='baiviet.jsp?id=" + baiVietTopFull.getId() + "'>" + baiVietTopFull.getDescription() + "</a>");
+							if (baiVietTopFull.getBinhLuans().size() > 0) {
+                            	out.print("<a href='baiviet.jsp?id=" + baiVietTopFull.getId() + "' class='count-cmt'>");
+                                out.print("<i class='bi bi-chat'></i>");
+                                out.print("<span class='ms-2'>" + baiVietTopFull.getBinhLuans().size() + "</span>");
+                                out.print("</a>");
+                          	}
+							out.print("</p>");
+							out.print("</div>");
+							out.print("</div>");
+						%>
+						<!-- <div class="item-news full-thumb row">
 							<div class="img col-8">
 								<img alt="" src="https://i1-vnexpress.vnecdn.net/2024/05/24/3-2-2021-1716527907-1716537922.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=pUReWcA3Hzp9E24t0E0Nfw">
 							</div>
@@ -59,12 +81,32 @@
 									</a>
 								</p>
 							</div>
-						</div>
+						</div> -->
 						<!-- Sub news -->
 						<div class="sub-news-top">
 							<div class="row">
 								<!-- Item 1 -->
-								<div class="col-4">
+								<%
+									for (var bv : baiVietTop.subList(1, 4)) {
+                                        out.print("<div class='col-4'>");
+                                        out.print("<div class='item-news'>");
+                                        out.print("<h3 class='title line-clamp-3'>");
+                                        out.print("<a href='baiviet.jsp?id=" + bv.getId() + "'>" + bv.getTitle() + "</a>");
+                                        if (bv.getBinhLuans().size() > 0) {
+                                        	out.print("<a href='baiviet.jsp?id=" + bv.getId() + "' class='count-cmt'>");
+                                            out.print("<i class='bi bi-chat'></i>");
+                                            out.print("<span class='ms-2'>" + bv.getBinhLuans().size() + "</span>");
+                                            out.print("</a>");
+                                        }
+                                        out.print("</h3>");
+                                        out.print("<a href='baiviet.jsp?id=" + bv.getId() + "'>");
+                                        out.print("<img alt='" + bv.getTitle() + "' src='" + bv.getImage() + "'>");
+                                        out.print("</a>");
+                                        out.print("</div>");
+                                        out.print("</div>");
+                                    }
+								%>
+								<!-- <div class="col-4">
 									<div class="item-news">
 										<h3 class="title title-height line-clamp-3">
 											<a href="">60 phút tìm đường sống trong ngôi nhà cháy</a>
@@ -77,24 +119,10 @@
 											<img alt="" src="https://i1-vnexpress.vnecdn.net/2024/05/24/nan-nhan2-1716532605-8861-1716532610.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=ssIBStElK9JZisDDrVzbQA">
 										</a>
 									</div>
-								</div>
-								<!-- Item 2 -->
-								<div class="col-4">
-									<div class="item-news">
-										<h3 class="title title-height line-clamp-3">
-											<a href="">Chủ tịch nước: Siết quy định sử dụng dao để xây dựng xã hội an toàn</a>
-											<a href="" class="count-cmt">
-												<i class="bi bi-chat-fill icon"></i>
-												<span>117</span>
-											</a>
-										</h3>
-										<a href="">
-											<img alt="" src="https://i1-vnexpress.vnecdn.net/2024/05/24/49dbdaaa-964e-44f7-b593-d83bb6-6299-7858-1716542920.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=ED-R4bTPTNiSk0wiEsHsPQ">
-										</a>
-									</div>
-								</div>
+								</div> -->
+								
 								<!-- Góc nhìn  -->
-								<div class="col-4">
+								<!-- <div class="col-4">
 									<div class="item-gocnhin">
 										<a href="" class="title-link-gn">Góc nhìn</a>
 										<h3 class="title line-clamp-3">
@@ -116,7 +144,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -153,7 +181,7 @@
 								out.print("<a href='baiviet.jsp?id=" + baiViet.getId() + "'>" + baiViet.getDescription() + "</a>");
 								if (baiViet.getBinhLuans().size() > 0) {
                                 	out.print("<a href='baiviet.jsp?id=" + baiViet.getId() + "' class='count-cmt'>");
-									out.print("<i class='bi bi-chat-fill icon'></i>");
+									out.print("<i class='bi bi-chat'></i>");
 									out.print("<span class='ms-2'>" + baiViet.getBinhLuans().size() + "</span>");
 									out.print("</a>");
                                 }
@@ -235,7 +263,7 @@
 										out.print("<p class='desc'>" + bvKinhDoanhNewLeft.getDescription());
 										if (bvKinhDoanhNewLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvKinhDoanhNewLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvKinhDoanhNewLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -272,7 +300,7 @@
                                         out.print("<p class='desc'>" + bvKinhDoanhNewRight.getDescription());
                                         if (bvKinhDoanhNewRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvKinhDoanhNewRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvKinhDoanhNewRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -300,7 +328,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -367,7 +395,7 @@
 										out.print("<p class='desc'>" + bvBdsLeft.getDescription());
 										if (bvBdsLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvBdsLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvBdsLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -386,7 +414,7 @@
                                         out.print("<p class='desc'>" + bvBdsRight.getDescription());
                                         if (bvBdsRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvBdsRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvBdsRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -403,7 +431,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -470,7 +498,7 @@
 										out.print("<p class='desc'>" + bvThethaoLeft.getDescription());
 										if (bvThethaoLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvThethaoLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvThethaoLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -489,7 +517,7 @@
                                         out.print("<p class='desc'>" + bvThethaoRight.getDescription());
                                         if (bvThethaoRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvThethaoRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvThethaoRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -506,7 +534,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -564,7 +592,7 @@
 										out.print("<p class='desc'>" + bvgiaitriLeft.getDescription());
 										if (bvgiaitriLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvgiaitriLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvgiaitriLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -583,7 +611,7 @@
                                         out.print("<p class='desc'>" + bvgiaitriRight.getDescription());
                                         if (bvgiaitriRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvgiaitriRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvgiaitriRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -600,7 +628,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -658,7 +686,7 @@
 										out.print("<p class='desc'>" + bvsuckhoeLeft.getDescription());
 										if (bvsuckhoeLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvsuckhoeLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvsuckhoeLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -677,7 +705,7 @@
                                         out.print("<p class='desc'>" + bvsuckhoeRight.getDescription());
                                         if (bvsuckhoeRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvsuckhoeRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvsuckhoeRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -694,7 +722,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -752,7 +780,7 @@
 										out.print("<p class='desc'>" + bvdoisongLeft.getDescription());
 										if (bvdoisongLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvdoisongLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvdoisongLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -771,7 +799,7 @@
                                         out.print("<p class='desc'>" + bvsuckhoeRight.getDescription());
                                         if (bvdoisongRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvdoisongRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvdoisongRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -788,7 +816,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -846,7 +874,7 @@
 										out.print("<p class='desc'>" + bvgiaoducLeft.getDescription());
 										if (bvgiaoducLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvgiaoducLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvgiaoducLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -865,7 +893,7 @@
                                         out.print("<p class='desc'>" + bvgiaoducRight.getDescription());
                                         if (bvgiaoducRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvgiaoducRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvgiaoducRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -882,7 +910,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -940,7 +968,7 @@
 										out.print("<p class='desc'>" + bvphapluatLeft.getDescription());
 										if (bvphapluatLeft.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvphapluatLeft.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvphapluatLeft.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -959,7 +987,7 @@
                                         out.print("<p class='desc'>" + bvphapluatRight.getDescription());
                                         if (bvphapluatRight.getBinhLuans().size() > 0) {
                                         	out.print("<a href='baiviet.jsp?id=" + bvphapluatRight.getId() + "' class='count-cmt'>");
-    										out.print("<i class='bi bi-chat-fill icon'></i>");
+    										out.print("<i class='bi bi-chat'></i>");
     										out.print("<span class='ms-2'>" + bvphapluatRight.getBinhLuans().size() + "</span>");
     										out.print("</a>");
                                         }
@@ -976,7 +1004,7 @@
                                             out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
                                             if (baiviet.getBinhLuans().size() > 0) {
                                             	out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-        										out.print("<i class='bi bi-chat-fill icon'></i>");
+        										out.print("<i class='bi bi-chat'></i>");
         										out.print("<span class='ms-2'>" + baiviet.getBinhLuans().size() + "</span>");
         										out.print("</a>");
                                             }
@@ -1043,7 +1071,7 @@
 									<%
 										if (bvkhoahocLeft.getBinhLuans().size() > 0) {
 											out.print("<a href='baiviet.jsp?id=" + bvkhoahocLeft.getId() + "' class='count-cmt'>");
-											out.print("<i class='bi bi-chat-fill icon'></i>");
+											out.print("<i class='bi bi-chat'></i>");
 											out.print("<span>" + bvkhoahocLeft.getBinhLuans().size() + "</span>");
 											out.print("</a>");
 										}
@@ -1101,7 +1129,7 @@
 											out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
 											if (baiviet.getBinhLuans().size() > 0) {
 												out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-												out.print("<i class='bi bi-chat-fill icon'></i>");
+												out.print("<i class='bi bi-chat'></i>");
 												out.print("<span>" + baiviet.getBinhLuans().size() + "</span>");
 											}
 											out.print("</a>");
@@ -1175,7 +1203,7 @@
 									<%
 										if (bvsohoaLeft.getBinhLuans().size() > 0) {
 											out.print("<a href='baiviet.jsp?id=" + bvsohoaLeft.getId() + "' class='count-cmt'>");
-											out.print("<i class='bi bi-chat-fill icon'></i>");
+											out.print("<i class='bi bi-chat'></i>");
 											out.print("<span>" + bvsohoaLeft.getBinhLuans().size() + "</span>");
 											out.print("</a>");
 										}
@@ -1214,7 +1242,7 @@
 											out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "'>" + baiviet.getTitle() + "</a>");
 											if (baiviet.getBinhLuans().size() > 0) {
 												out.print("<a href='baiviet.jsp?id=" + baiviet.getId() + "' class='count-cmt'>");
-												out.print("<i class='bi bi-chat-fill icon'></i>");
+												out.print("<i class='bi bi-chat'></i>");
 												out.print("<span>" + baiviet.getBinhLuans().size() + "</span>");
 											}
 											out.print("</a>");

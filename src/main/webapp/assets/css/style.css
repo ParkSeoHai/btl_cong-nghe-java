@@ -53,6 +53,10 @@ header {
 	font-family: "Arial", serif;
 }
 
+footer {
+	font-family:  "Arial", serif;
+}
+
 h2.title a {
 	font-size: 2rem;
 	color: #222222;
@@ -203,6 +207,24 @@ h3.title {
 .bottom-header .sub-navs a:hover {
 	text-decoration: underline;
 }
+.btn-search{
+	position: relative;
+	margin-right: 12px;
+	padding-left: 0;
+}
+.icon-search{
+	position: absolute;
+	left: 5px;
+	top: -5px;
+	cursor: pointer;
+}
+.input-search{
+	width: 150px;
+	border: 0.5px solid #ccc;
+	border-radius: 10px;
+	padding-left: 25px;
+	outline: none;
+}
 /*End Header*/
 
 /*Start Footer*/
@@ -281,4 +303,15 @@ h3.title {
 .right-footer a{
     padding: 0 5px;
     font-size: 1.4rem;
+}
+
+.right-top-header{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.account{
+	line-height: 10px;
+	display: block;
+	padding: 10px 0;
 }
