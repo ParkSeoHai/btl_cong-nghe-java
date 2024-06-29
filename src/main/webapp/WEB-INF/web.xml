@@ -61,6 +61,35 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>addBinhLuan</display-name>
+    <servlet-name>addBinhLuan</servlet-name>
+    <servlet-class>controllers.addBinhLuan</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addBinhLuan</servlet-name>
+    <url-pattern>/addBinhLuan</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmotionAction</display-name>
+    <servlet-name>EmotionAction</servlet-name>
+    <servlet-class>controllers.EmotionAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmotionAction</servlet-name>
+    <url-pattern>/EmotionAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SaveBaiViet</display-name>
+    <servlet-name>SaveBaiViet</servlet-name>
+    <servlet-class>controllers.SaveBaiViet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaveBaiViet</servlet-name>
+    <url-pattern>/SaveBaiViet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <display-name>ChangeName</display-name>
     <servlet-name>ChangeName</servlet-name>
     <servlet-class>controllers.ChangeName</servlet-class>
@@ -138,5 +167,15 @@
   <servlet-mapping>
     <servlet-name>ChangePassword</servlet-name>
     <url-pattern>/ChangePassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveSaveBaiViet</display-name>
+    <servlet-name>RemoveSaveBaiViet</servlet-name>
+    <servlet-class>controllers.RemoveSaveBaiViet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveSaveBaiViet</servlet-name>
+    <url-pattern>/RemoveSaveBaiViet</url-pattern>
   </servlet-mapping>
 </web-app>
