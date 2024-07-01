@@ -68,8 +68,6 @@
 					<div class="navbar-info">
 							<ul>
 								<li><a href="/btl_docbao/views/Infomation-user.jsp">Thông tin chung</a></li>
-								<li><a href="">Ý kiến của bạn</a></li>
-								<li><a href="">Mục đã xem</a></li>
 								<li><a href="/btl_docbao/views/baiviet-saved.jsp" style="color: black;">Mục đã lưu</a></li>
 								<li><a href="/btl_docbao/logout">Thoát <i class="bi bi-box-arrow-right"></i></a></li>
 							</ul>
