@@ -41,7 +41,7 @@
 				for (BaiViet baiViet : baiViets) {
 					out.print("<div class='row baiviet-content'>");
 					out.print("<div class='col-9 info-baiviet'>");
-					out.print("<a href=''>" + baiViet.getTitle() + "</a>");
+					out.print("<h3><a href='/btl_docbao/views/baiviet.jsp?id=" + baiViet.getId() + "'>" + baiViet.getTitle() + "</a></h3>");
 					out.print("<h5>" + baiViet.getDescription() + "</h5>");
 					if (baiViet.getBinhLuans().size() > 0){
 						out.print("<i class='bi bi-chat-fill icon'></i>");
