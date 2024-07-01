@@ -170,7 +170,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>SearchTitle</display-name>
     <servlet-name>SearchTitle</servlet-name>
     <servlet-class>controllers.SearchTitle</servlet-class>
@@ -178,7 +177,8 @@
   <servlet-mapping>
     <servlet-name>SearchTitle</servlet-name>
     <url-pattern>/SearchTitle</url-pattern>
-=======
+  </servlet-mapping>
+  <servlet>
     <display-name>RemoveSaveBaiViet</display-name>
     <servlet-name>RemoveSaveBaiViet</servlet-name>
     <servlet-class>controllers.RemoveSaveBaiViet</servlet-class>
@@ -186,6 +186,35 @@
   <servlet-mapping>
     <servlet-name>RemoveSaveBaiViet</servlet-name>
     <url-pattern>/RemoveSaveBaiViet</url-pattern>
->>>>>>> 417b81aa7350f9d006a7d03401ffa9846c0d229b
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddBaiViet</display-name>
+    <servlet-name>AddBaiViet</servlet-name>
+    <servlet-class>controllers.AddBaiViet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddBaiViet</servlet-name>
+    <url-pattern>/AddBaiViet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateBaiViet</display-name>
+    <servlet-name>UpdateBaiViet</servlet-name>
+    <servlet-class>controllers.UpdateBaiViet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBaiViet</servlet-name>
+    <url-pattern>/UpdateBaiViet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteBaiViet</display-name>
+    <servlet-name>DeleteBaiViet</servlet-name>
+    <servlet-class>controllers.DeleteBaiViet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBaiViet</servlet-name>
+    <url-pattern>/DeleteBaiViet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,3 +1,5 @@
+<%@page import="services.UserService"%>
+<%@page import="models.User"%>
 <%@page import="services.TheLoaiService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -14,9 +16,10 @@
                 <span class="location">Hà Nội   <i class="bi bi-cloud-sun-fill"></i>  32 <sup>o</sup></span>
             </div>
             <div class="right-top-header d-flex">
-                <a href="">Mới nhất</a>
+                <!-- <a href="">Mới nhất</a>
                 <a href="">Tin theo khu vực</a>
                 <a href="" class="d-flex align-items-center"><img src="/btl_docbao/assets/images/MiniLogo.png" alt="" class="me-2"> International</a>
+                -->
                 <form action="/btl_docbao/SearchTitleAction" class="form-search" method="get">
                 	<span class="btn-search"><i class="bi bi-search icon-search"></i><input class="input-search d-none" placeholder="Tìm kiếm..." type="text" name="title"></span>
                 	<input type="submit" value="search" style="display: none;">
@@ -24,14 +27,19 @@
                 <div class='account'>
 	                <%
 	                	 String email = (String) session.getAttribute("email");
+	                	 var userHeader = (User) new UserService().getUser(email);
 	                	 if (email != null) {
-	                		 out.print("<span>" + email + "</span>");
+	                		 out.print("<span>" + userHeader.getEmail() + "</span>");
 	                		 /* Dropdown */
 	                		 out.print("<div class='dropdown'>");
 	                		 out.print("<div class='dropdown-content'>");
 	                		 out.print("<p>Trang cá nhân</p>");
 	                		 out.print("</div>");
 	                		 out.print("<p class='pt-3'><a href='/btl_docbao/views/Infomation-user.jsp'>Thông tin chung</a></p>");
+	                		 if (userHeader.getRole() == 0) {
+                    			 out.print("<p class='pt-3'><a href='/btl_docbao/views/admin.jsp'>Quản lý bài viết</a></p>");
+                    		 }
+	                		 out.print("<p class='pt-3'><a href='/btl_docbao/views/baiviet-saved.jsp'>Bài viết đã lưu</a></p>");
 	                		 out.print("<p class='pt-3'><a href='/btl_docbao/logout'>Đăng xuất</a></p>");
 	                		 out.print("</div>");
 	                	 } else {

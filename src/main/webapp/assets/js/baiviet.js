@@ -307,14 +307,18 @@ const removeSaveBaiViet = (idUser, idBaiviet) => {
 		.catch(error => console.error('Error:', error));
 };
 
-
-
-
-
-
-
-
-
+const copyLinkBaiViet = (event) => {
+	event.preventDefault();
+	
+	const link = location.href;
+    const input = document.createElement('input');
+	input.value = link;
+	document.body.appendChild(input);
+	input.select();
+	document.execCommand('copy');
+	document.body.removeChild(input);
+	alert('Đã sao chép liên kết');
+}
 
 
 

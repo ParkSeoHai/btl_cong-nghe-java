@@ -336,6 +336,7 @@ footer_ic
 	display: inline-block;
 	color: #4f4f4f;
 	border-radius: 50%;
+	cursor: pointer;
 }
 
 .svg_ic_mail:hover{
