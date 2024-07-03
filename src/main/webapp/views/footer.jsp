@@ -58,7 +58,7 @@
         </div>
         <div class="bottom-footer d-flex justify-content-between">
             <div class="left-footer d-flex align-items-center">
-                <span>Báo điện tử</span><img src="/btl_docbao/assets/images/Logo.png" alt="">
+                <span>Báo điện tử</span><img src="/btl_docbao/assets/images/Logo.jpg" alt="">
             </div>
             <div class="right-footer d-flex align-items-center">
                 <ul class="d-flex align-items-center">
@@ -66,7 +66,7 @@
                     <li><a href="">Chính sách bảo mật</a></li>
                     <li><a href="">Cookies</a></li>
                 </ul>
-                <span>Theo dõi VnExpress trên</span><a href=""><i class="bi bi-facebook"></i></a><a href=""><i class="bi bi-twitter"></i></a>
+                <span>Theo dõi FOURHT trên</span><a href=""><i class="bi bi-facebook"></i></a><a href=""><i class="bi bi-twitter"></i></a>
                 <a href="" style="color: red"><i class="bi bi-youtube"></i></a>
             </div>
         </div>

@@ -140,7 +140,7 @@
 						<button type="submit">Đổi mật khẩu</button>
 					</form>
 				
-				<h1>Thông tin tài khoản</h1>
+				<h1>Thông tin cá nhân</h1>
 				
 				<!-- Ho ten -->
 				<div class="info-user-content avt-user-edit">

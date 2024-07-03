@@ -9,7 +9,7 @@
             <div class="left-top-header d-flex">
                 <div class="img-logo">
                     <a href="/btl_docbao/views/home.jsp">
-                        <img src="/btl_docbao/assets/images/Logo.png" alt="">
+                        <img src="/btl_docbao/assets/images/Logo.jpg" alt="">
                     </a>
                 </div>
                 <span class="date-now"></span>
