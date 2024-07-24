@@ -42,7 +42,7 @@ const submitAddBaiViet = async (e) => {
 	}
 	
 	// Upload image to cloudinary
-	const imageUpload = await uploadImage(image.files[0], `webtintuc/${title}`);
+	const imageUpload = await uploadImage(image.files[0], `webtintuc`);
 	// image.secure_url;
 	
 	const data = {

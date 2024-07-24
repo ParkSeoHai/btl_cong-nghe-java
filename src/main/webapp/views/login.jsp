@@ -80,7 +80,7 @@
 					</div>
 					<!-- Bottom -->
 					<div class="tab-content__bottom">
-						<p class="">Bạn đăng nhập là đồng ý với điều khoản sử dụng và chính sách bảo mật của VnExpress
+						<p class="">Bạn đăng nhập là đồng ý với điều khoản sử dụng và chính sách bảo mật
 							& được bảo vệ bởi reCAPTCHA
 						</p>
 					</div>
@@ -91,7 +91,7 @@
 						<!-- Left -->
 						<div class="tab-content__left">
 							<form action="/btl_docbao/RegisterAction" method="post" class="form" id="form_register">
-								<p class="title">Tạo tài khoản VnExpress
+								<p class="title">Tạo tài khoản
 									Để sử dụng đầy đủ tính năng đọc báo và tham gia
 									cộng đồng hơn 8 triệu thành viên</p>
 								<%
@@ -136,7 +136,7 @@
 					</div>
 					<!-- Bottom -->
 					<div class="tab-content__bottom">
-						<p class="">Bạn tạo tài khoản là đồng ý với điều khoản sử dụng và chính sách bảo mật của VnExpress
+						<p class="">Bạn tạo tài khoản là đồng ý với điều khoản sử dụng và chính sách bảo mật
 							& được bảo vệ bởi reCAPTCHA
 						</p>
 					</div>

@@ -8,7 +8,9 @@ public class TheLoaiTin extends TheLoai {
 		super();
 	}
 
-	public TheLoaiTin(int id, String name, int indexShow, int hide, String textUrl, int hideGroup, int idTheLoai) {
+	public TheLoaiTin(int id, String name, int indexShow,
+			int hide, String textUrl, int hideGroup,
+			int idTheLoai) {
 		super(id, name, indexShow, hide, textUrl);
 		this.HideGroup = hideGroup;
 		this.IdTheLoai = idTheLoai;

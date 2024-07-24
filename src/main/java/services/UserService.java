@@ -8,6 +8,7 @@ import models.User;
 
 public class UserService implements IUser {
 	private Connection conn = null;
+	
 	@Override
 	public boolean login(String username, String password) {
 		try {
@@ -181,6 +182,7 @@ public class UserService implements IUser {
 		}
 		return null;
 	}
+	
 	@Override
 	public User updateBirthday(String email, String newBirthday) {
 		try {
@@ -196,6 +198,7 @@ public class UserService implements IUser {
 		}
 		return null;
 	}
+	
 	@Override
 	public User updateNumberphone(String email, String newNumberphone) {
 		try {
@@ -211,6 +214,7 @@ public class UserService implements IUser {
 		}
 		return null;
 	}
+	
 	@Override
 	public User updateAddress(String email, String newAddress) {
 		try {
@@ -226,6 +230,7 @@ public class UserService implements IUser {
 		}
 		return null;
 	}
+	
 	@Override
 	public User updateEmail(String email, String newEmail) {
 		try {
@@ -241,6 +246,7 @@ public class UserService implements IUser {
 		}
 		return null;
 	}
+	
 	@Override
 	public User updateAvatar(String email, String newAvatar) {
 		try {
@@ -256,6 +262,7 @@ public class UserService implements IUser {
 		}
 		return null;
 	}
+	
 	@Override
 	public User updatePassword(String email, String newPassword) {
 		try {
