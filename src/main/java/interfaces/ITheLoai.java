@@ -13,3 +13,6 @@ public interface ITheLoai {
 	public TheLoaiTin getTheLoaiTinById(int id);
 	public TheLoai getTheLoaiById(int id);
 }
+
+
+

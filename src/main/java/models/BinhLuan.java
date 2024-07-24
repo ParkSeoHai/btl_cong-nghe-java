@@ -15,7 +15,8 @@ public class BinhLuan {
 	
 	public BinhLuan() {}
 	
-	public BinhLuan(int id, String content, String time, int id_BaiViet, int id_User) {
+	public BinhLuan(int id, String content, String time,
+			int id_BaiViet, int id_User) {
 		Id = id;
 		Content = content;
 		Time = time;

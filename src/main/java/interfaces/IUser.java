@@ -15,5 +15,7 @@ public interface IUser {
 	public User updateEmail(String email, String newEmail);
 	public User updateAvatar(String email, String newAvatar);
 	public User updatePassword(String email, String newPassword);
-	
 }
+
+
+

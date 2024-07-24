@@ -13,7 +13,8 @@ public class TheLoai {
 	
 	public TheLoai() {}
 	
-	public TheLoai(int id, String name, int indexShow, int hide, String textUrl) {
+	public TheLoai(int id, String name, int indexShow,
+			int hide, String textUrl) {
 		Id = id;
 		Name = name;
 		IndexShow = indexShow;

@@ -13,15 +13,14 @@ public class BaiViet {
 	private String CreateDate;
 	private int View;
 	private int IdTheLoaiTin;
-	
 	// List binh luan
 	private ArrayList<BinhLuan> binhLuans;
-	
 	private int CommentCount;
 	
 	public BaiViet() {}
 	
-	public BaiViet(int id, String title, String description, String content, String image, String author, int hide,
+	public BaiViet(int id, String title, String description,
+			String content,String image, String author, int hide,
 			String createDate, int view, int idTheLoaiTin) {
 		Id = id;
 		Title = title;

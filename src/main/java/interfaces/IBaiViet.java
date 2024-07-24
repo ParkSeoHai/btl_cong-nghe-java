@@ -12,3 +12,12 @@ public interface IBaiViet {
 	public BaiViet GetBaiVietById(int id);
 	public ArrayList<BaiViet> GetBaiVietsWithName(int limit, String Name);
 }
+
+
+
+
+
+
+
+
+

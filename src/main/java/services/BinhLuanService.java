@@ -102,3 +102,5 @@ public class BinhLuanService implements IBinhLuan {
 		return false;
 	}
 }
+
+

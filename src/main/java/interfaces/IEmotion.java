@@ -7,3 +7,8 @@ import models.Emotion;
 public interface IEmotion {
 	public ArrayList<Emotion> getAllEmotion();
 }
+
+
+
+
+
